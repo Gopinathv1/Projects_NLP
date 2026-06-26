@@ -1,4 +1,7 @@
 pandas
 numpy
-genism
-skikit-learn
+scikit-learn
+streamlit
+nltk
+snowflake-connector-python
+joblib
