@@ -1,0 +1,6 @@
+| Model                      | Translation       |
+| -------------------------- | ----------------- |
+| Helsinki-NLP/opus-mt-fr-en | French → English  |
+| Helsinki-NLP/opus-mt-en-fr | English → French  |
+| Helsinki-NLP/opus-mt-en-de | English → German  |
+| Helsinki-NLP/opus-mt-es-en | Spanish → English |
