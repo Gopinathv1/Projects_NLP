@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Extractive QA — ranked answers</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <h1>Extractive question answering</h1>
+    <p class="sub">Answers are spans copied out of the passages you supply, ranked by model confidence.</p>
+  </div>
+</header>
+
+<main class="wrap grid">
+
+  <!-- ---------------- input column ---------------- -->
+  <section class="panel" aria-labelledby="ask">
+    <h2 id="ask" class="panel-title">Ask</h2>
+
+    <label class="field">
+      <span class="label">Question</span>
+      <input id="question" type="text" placeholder="What do you want to know?" autocomplete="off">
+    </label>
+
+    <div class="field">
+      <div class="row-between">
+        <span class="label">Context passages</span>
+        <button id="add-passage" class="ghost" type="button">+ Add passage</button>
+      </div>
+      <div id="passages"></div>
+    </div>
+
+    <div class="controls">
+      <label class="field inline">
+        <span class="label">Candidates to return <b id="topk-value" class="mono">5</b></span>
+        <input id="topk" type="range" min="1" max="20" value="5">
+      </label>
+
+      <label class="field inline">
+        <span class="label">Engine</span>
+        <select id="engine">
+          <option value="finetuned">Fine-tuned model</option>
+          <option value="baseline">Hugging Face pipeline (no training)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="row-between actions">
+      <button id="run" class="primary" type="button">Rank answers</button>
+      <select id="sample" class="ghost-select">
+        <option value="">Load a sample…</option>
+        {% for s in samples %}
+          <option value="{{ loop.index0 }}">{{ s.label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <p id="status" class="status" role="status"></p>
+  </section>
+
+  <!-- ---------------- results column ---------------- -->
+  <section class="panel" aria-labelledby="ranked">
+    <h2 id="ranked" class="panel-title">Ranked answers</h2>
+    <ol id="results" class="results"></ol>
+    <div id="evidence" class="evidence" hidden>
+      <h3 class="evidence-title">Evidence <span id="evidence-src" class="mono muted"></span></h3>
+      <p id="evidence-body" class="evidence-body"></p>
+    </div>
+    <p id="meta" class="meta mono"></p>
+  </section>
+
+</main>
+
+<script id="samples-data" type="application/json">{{ samples | tojson }}</script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

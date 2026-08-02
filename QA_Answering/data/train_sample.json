@@ -1,0 +1,65 @@
+{
+  "version": "v2.0",
+  "data": [
+    {
+      "title": "Support KB",
+      "paragraphs": [
+        {
+          "context": "The XR-500 router supports dual-band Wi-Fi on 2.4 GHz and 5 GHz. Firmware updates are delivered automatically every Tuesday at 03:00 local time. The device carries a two-year limited warranty covering manufacturing defects.",
+          "qas": [
+            {
+              "id": "t1",
+              "question": "How long is the warranty?",
+              "answers": [
+                {
+                  "text": "two-year",
+                  "answer_start": 166
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "t2",
+              "question": "When are firmware updates delivered?",
+              "answers": [
+                {
+                  "text": "every Tuesday at 03:00 local time",
+                  "answer_start": 110
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "t3",
+              "question": "What is the price of the router?",
+              "answers": [],
+              "is_impossible": true
+            }
+          ]
+        },
+        {
+          "context": "Refunds are processed within 14 business days of approval. Customers must submit the original invoice. Shipping charges are not refundable.",
+          "qas": [
+            {
+              "id": "t4",
+              "question": "How long do refunds take?",
+              "answers": [
+                {
+                  "text": "14 business days",
+                  "answer_start": 29
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "t5",
+              "question": "Which courier is used?",
+              "answers": [],
+              "is_impossible": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
